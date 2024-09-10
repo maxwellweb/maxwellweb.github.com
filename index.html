@@ -3,111 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Siro Soares Nemetz - Programador Backend</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Max Siro Soares Nemetz - Programador Backend - Adminstrador de sistemas</title>
+    <!-- Incluyendo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root{
+        --background:0 0% 100%;
+        --foreground:240 10% 3.9%;
+        --primary:240 5.9% 10%;
+        --primary-foreground:0 0% 98%;
+        --muted:240 4.8% 95.9%;
+        --muted-foreground:240 3.8% 45%;
+        --radius:0.5rem;
+      }
+      h1, h2, h3, h4, h5, h6 { 
+        font-family: 'Inter', sans-serif;
+      }
+      body { 
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <h1>Max Siro Soares Nemetz</h1>
-            <h2>Programador Backend</h2>
-            <p>Email: <a href="mailto:maxwellweb@gmail.com">maxwellweb@gmail.com</a></p>
-            <p>Dirección: Curupayty 1480, Lambare, Paraguay</p>
-            <p>Teléfono: <a href="https://wa.me/595982811235" target="_blank">(0982)811-235</a></p>
-            <p>Fecha de nacimiento: 12 Sep, 1987</p>
-            <p>Nacionalidad: Paraguaya</p>
-            <p><a href="https://linkedin.com/in/maxwellweb" target="_blank">LinkedIn</a></p>
-        </div>
-    </header>
+<body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
 
-    <section id="experience">
-        <div class="container">
-            <h2>Experiencia</h2>
-            <div class="job">
-                <h3>Desarrollador back end - Tracked (ExtJS, Java)</h3>
-                <p>Desarrollo del sistema de Ratreo (tracking)</p>
-            </div>
-            <div class="job">
-                <h3>Desarrollador web - Grupo Vierci (Wordpress, Rails, Laravel)</h3>
-                <p>Desarrollo y mantenimiento de los sitios: paraguay.com, telefuturo.com.py, npy.com.py, urbana.com.py, estacion40.com.py, monumental.com.py, latele.com.py, ella.paraguay.com, teleshow.paraguay.com</p>
-            </div>
-            <div class="job">
-                <h3>Desarrollador web - Nosotros S.A. (CakePHP, Laravel)</h3>
-                <p>Desarrollo de proyectos en PHP-MySQL y diseño front-end en HTML5, JQuery, Bootstrap y CSS3</p>
-            </div>
-            <div class="job">
-                <h3>Desarrollador web - IDTK (Laravel)</h3>
-                <p>Desarrollo del sistema e-siger (Migración del sistema del Ministerio de registro público)</p>
-            </div>
-            <div class="job">
-                <h3>Desarrollador web - Capitan Lott (Laravel, CakePHP)</h3>
-                <p>Desarrollo y mantenimiento de sitios de la agencia y clientes de la misma</p>
-            </div>
-            <div class="job">
-                <h3>Desarrollador web - Facilandia (Rails)</h3>
-                <p>Mantenimiento y desarrollo de su E-Commerce</p>
-            </div>
-            <div class="job">
-                <h3>Administrador Linux (Red Hat) - Excelsis S.A. (Oracle Linux)</h3>
-                <p>Montaje de servidores y creación de sistemas virtualizados. Administración y mantenimiento de los servidores</p>
-            </div>
-            <div class="job">
-                <h3>SEGEL Soluciones Inteligentes (Laravel, Codeigniter)</h3>
-                <p>Desarrollo de sistemas de puntos de ventas y sistemas web e-learning</p>
-            </div>
-            <div class="job">
-                <h3>Mambo Business Technology (Laravel, Django, Reactjs)</h3>
-                <p>Mantenimiento y desarrollo de sistema ALISTER y Desarrollo de sistema Comply. </p>
-            </div>
+  <header class="bg-blue-900 text-white py-8 px-4 md:px-6">
+    <div class="container mx-auto max-w-4xl">
+      <div class="grid gap-4 md:grid-cols-[1fr_300px] md:gap-8">
+        <div class="space-y-2">
+          <h1 class="text-4xl font-bold">Max Siro Soares Nemetz</h1>
+          <p class="text-lg font-medium">Programador Backend</p>
+          <p class="text-gray-300">
+            Comencé mi carrera como técnico en informática, especializándome en reparación y reinstalación de sistemas. Posteriormente, me enfoqué en lenguajes como PHP, y más recientemente en el desarrollo de proyectos con tecnologías como PHP-MySQL, JavaScript y Linux.
+          </p>
         </div>
-    </section>
-
-    <section id="education">
-        <div class="container">
-            <h2>Educación</h2>
-            <div class="education-item">
-                <h3>Introducción a la programación en QBASE, JAVASCRIPT, VISUAL FOX PRO - Instituto panamericano de computación</h3>
-            </div>
-            <div class="education-item">
-                <h3>Curso de Introducción y manejo sistema operativo GNU/Linux - Estacio de Sá</h3>
-            </div>
-            <div class="education-item">
-                <h3>Curso de introducción a la programación - Estacio de Sá</h3>
-            </div>
+        <div class="flex items-center justify-end">
+          <img
+            src="assets/img/max_pic.jpg"
+            width="200"
+            height="200"
+            alt="Max Siro Soares Nemetz"
+            class="rounded-full"
+            style="aspect-ratio:200/200;object-fit:cover"
+          />
         </div>
-    </section>
+      </div>
+    </div>
+  </header>
 
-    <section id="skills">
-        <div class="container">
-            <h2>Habilidades</h2>
-            <ul>
-                <li>PHP (Laravel, CakePHP, CodeIgniter)</li>
-                <li>NodeJS (Express)</li>
-                <li>JavaScript (VueJS, React, JQuery)</li>
+  <main class="flex-1">
+    <section class="py-12 md:py-16 px-4 md:px-6">
+      <div class="container mx-auto max-w-4xl space-y-8">
+        <div>
+          <h2 class="text-3xl font-bold text-blue-900">Experiencia Laboral</h2>
+          <div class="mt-4 space-y-4">
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Desarrollador back end - Tracked (ExtJS, Java)</h3>
+              <p class="text-gray-500">Desarrollo del sistema de Ratreo (tracking)</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Grupo Vierci (Wordpress, Rails, Laravel)</h3>
+              <p class="text-gray-500">Desarrollo y mantenimiento de los sitios: paraguay.com, telefuturo.com.py, npy.com.py, urbana.com.py, estacion40.com.py, monumental.com.py, latele.com.py, ella.paraguay.com, teleshow.paraguay.com</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Nosotros S.A. (CakePHP, Laravel)</h3>
+              <p class="text-gray-500">Desarrollo de proyectos en PHP-MySQL y diseño front-end en HTML5, JQuery, Bootstrap y CSS3</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - IDTK (Laravel)</h3>
+              <p class="text-gray-500">Desarrollo del sistema e-siger (Migración del sistema del Ministerio de registro público)</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Capitan Lott (Laravel, CakePHP)</h3>
+              <p class="text-gray-500">Desarrollo y mantenimiento de sitios de la agencia y clientes de la misma</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Facilandia (Rails)</h3>
+              <p class="text-gray-500">Mantenimiento y desarrollo de su E-Commerce</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Administrador Linux (Red Hat) - Excelsis S.A. (Oracle Linux)</h3>
+              <p class="text-gray-500">Montaje de servidores y creación de sistemas virtualizados. Administración y mantenimiento de los servidores</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">SEGEL Soluciones Inteligentes (Laravel, Codeigniter)</h3>
+              <p class="text-gray-500">Desarrollo de sistemas de puntos de ventas y sistemas web e-learning</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Mambo Business Technology (Laravel, Django, Reactjs)</h3>
+              <p class="text-gray-500">Mantenimiento y desarrollo de sistema ALISTER y Desarrollo de sistema Comply.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h2 class="text-3xl font-bold text-blue-900">Educación</h2>
+          <div class="mt-4 space-y-4">
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Curso de Introducción a la Programación</h3>
+              <p class="text-gray-500">Instituto Panamericano de Computación, 2006</p>
+            </div>
+            <div>
+              <h3 class="text-xl font-semibold text-blue-700">Curso de GNU/Linux</h3>
+              <p class="text-gray-500">Estacio de Sá, 2008</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-3xl font-bold text-blue-900">Habilidades</h2>
+          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="bg-gray-200 rounded-md p-4">
+              <h3 class="text-lg font-semibold text-blue-700">Backend Development</h3>
+              <ul class="mt-2 space-y-1 text-gray-700">
+                <li>PHP (Laravel, CakePHP)</li>
+                <li>Python (Django, Flask)</li>
                 <li>Ruby (Rails, Sinatra)</li>
-                <li>Python (django rest framework)</li>
-                <li>Linux (DevOps)</li>
-                <li>Base de datos (MongoDB, MySQL, PostgreSQL)</li>
-                <li>HTML5, CSS</li>
-            </ul>
+                <li>MySQL, PostgreSQL</li>
+                <li>Node.js (Express)</li>
+              </ul>
+            </div>
+            <div class="bg-gray-200 rounded-md p-4">
+              <h3 class="text-lg font-semibold text-blue-700">Frontend Development</h3>
+              <ul class="mt-2 space-y-1 text-gray-700">
+                <li>HTML5, CSS3, JavaScript</li>
+                <li>VueJS, ReactJS</li>
+              </ul>
+            </div>
+            <div class="bg-gray-200 rounded-md p-4">
+              <h3 class="text-lg font-semibold text-blue-700">DevOps y Administración de Sistemas</h3>
+              <ul class="mt-2 space-y-1 text-gray-700">
+                <li>Linux (Red Hat, Debian)</li>
+                <li>Docker</li>
+                <li>Jenkins</li>
+                <li>Git</li>
+              </ul>
+            </div>
+          </div>
         </div>
-    </section>
 
-    <section id="languages">
-        <div class="container">
-            <h2>Idiomas</h2>
-            <ul>
-                <li>Español - Nativo</li>
-                <li>Portugués - Nivel intermedio</li>
-                <li>Inglés - Nivel básico</li>
-            </ul>
+        <div>
+          <h2 class="text-3xl font-bold text-blue-900">Contacto</h2>
+          <div class="mt-4 space-y-4">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect width="4" height="12" x="2" y="9"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+              <a class="text-blue-700 hover:underline" target="_blank" href="https://linkedin.com/in/maxwellweb">
+                LinkedIn
+              </a>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <a href="mailto:maxwellweb@gmail.com" class="text-blue-700 hover:underline">
+                maxwellweb@gmail.com
+              </a>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <a href="https://wa.me/+595982811235" target="_blank" class="text-blue-700 hover:underline">
+                +595 982 811 235
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <div class="container">
-            <p>© 2024 Max Siro Soares Nemetz</p>
-        </div>
-    </footer>
+  <footer class="bg-gray-200 text-gray-700 py-6 px-4 md:px-6">
+    <div class="container mx-auto max-w-4xl text-center">
+      <p>© 2024 Max Siro Soares Nemetz. </p>
+    </div>
+  </footer>
 </body>
 </html>
