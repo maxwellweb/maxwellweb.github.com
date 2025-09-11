@@ -1,186 +1,457 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Siro Soares Nemetz - Programador Backend - Administrador de sistemas</title>
-    <!-- Incluyendo Tailwind CSS -->
+    <title>Max Siro Soares Nemetz - Hoja de Vida</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      :root{
-        --background:0 0% 100%;
-        --foreground:240 10% 3.9%;
-        --primary:240 5.9% 10%;
-        --primary-foreground:0 0% 98%;
-        --muted:240 4.8% 95.9%;
-        --muted-foreground:240 3.8% 45%;
-        --radius:0.5rem;
-      }
-      h1, h2, h3, h4, h5, h6 { 
-        font-family: 'Inter', sans-serif;
-      }
-      body { 
-        font-family: 'Inter', sans-serif;
-      }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #121212; /* Un negro un poco más suave */
+            color: #e0e0e0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .text-accent {
+            color: #3b82f6; /* Tailwind's blue-500 */
+        }
+        .bg-accent {
+            background-color: #3b82f6;
+        }
+        .border-accent {
+            border-color: #3b82f6;
+        }
+        .bg-card {
+            background-color: #1e1e1e;
+        }
+        .navbar-glass {
+            background-color: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        /* Estilo para el cursor parpadeante de la máquina de escribir */
+        .typed-cursor {
+            opacity: 1;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
     </style>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-100 text-gray-900">
+<body class="antialiased">
 
-  <header class="bg-blue-900 text-white py-8 px-4 md:px-6">
-    <div class="container mx-auto max-w-4xl">
-      <div class="grid gap-4 md:grid-cols-[1fr_300px] md:gap-8">
-        <div class="space-y-2">
-          <h1 class="text-4xl font-bold">Max Siro Soares Nemetz</h1>
-          <p class="text-lg font-medium">Programador Backend</p>
-          <p class="text-gray-300">
-            Comencé mi carrera como técnico en informática, especializándome en reparación y reinstalación de sistemas. Posteriormente, me enfoqué en lenguajes como PHP, y más recientemente en el desarrollo de proyectos con tecnologías como PHP-MySQL, JavaScript y Linux.
-          </p>
+    <!-- Header / Navbar -->
+    <header id="navbar" class="navbar-glass fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="text-xl font-bold tracking-wider">MSN</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#sobre-mi" class="hover:text-accent transition-colors">Sobre Mí</a>
+                <a href="#experiencia" class="hover:text-accent transition-colors">Experiencia</a>
+                <a href="#habilidades" class="hover:text-accent transition-colors">Habilidades</a>
+                <a href="#contacto" class="hover:text-accent transition-colors">Contacto</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                 <a href="https://www.linkedin.com/in/maxwellweb/" target="_blank" class="hover:text-accent transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://github.com/maxwellweb" target="_blank" class="hover:text-accent transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
         </div>
-        <div class="flex items-center justify-end">
-          <img
-            src="assets/img/max_pic.jpg"
-            width="200"
-            height="200"
-            alt="Max Siro Soares Nemetz"
-            class="rounded-full"
-            style="aspect-ratio:200/200;object-fit:cover"
-          />
-        </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="flex-1">
-    <section class="py-12 md:py-16 px-4 md:px-6">
-      <div class="container mx-auto max-w-4xl space-y-8">
-        <div>
-          <h2 class="text-3xl font-bold text-blue-900">Experiencia Laboral</h2>
-          <div class="mt-4 space-y-4">
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Desarrollador back end - Tracked (ExtJS, Java)</h3>
-              <p class="text-gray-500">Desarrollo del sistema de Ratreo (tracking)</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Grupo Vierci (Wordpress, Rails, Laravel)</h3>
-              <p class="text-gray-500">Desarrollo y mantenimiento de los sitios: paraguay.com, telefuturo.com.py, npy.com.py, urbana.com.py, estacion40.com.py, monumental.com.py, latele.com.py, ella.paraguay.com, teleshow.paraguay.com</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Nosotros S.A. (CakePHP, Laravel)</h3>
-              <p class="text-gray-500">Desarrollo de proyectos en PHP-MySQL y diseño front-end en HTML5, JQuery, Bootstrap y CSS3</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - IDTK (Laravel)</h3>
-              <p class="text-gray-500">Desarrollo del sistema e-siger (Migración del sistema del Ministerio de registro público)</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Capitan Lott (Laravel, CakePHP)</h3>
-              <p class="text-gray-500">Desarrollo y mantenimiento de sitios de la agencia y clientes de la misma</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Desarrollador web - Facilandia (Rails)</h3>
-              <p class="text-gray-500">Mantenimiento y desarrollo de su E-Commerce</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Administrador Linux (Red Hat) - Excelsis S.A. (Oracle Linux)</h3>
-              <p class="text-gray-500">Montaje de servidores y creación de sistemas virtualizados. Administración y mantenimiento de los servidores</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">SEGEL Soluciones Inteligentes (Laravel, Codeigniter)</h3>
-              <p class="text-gray-500">Desarrollo de sistemas de puntos de ventas y sistemas web e-learning</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Mambo Business Technology (Laravel, Django, Reactjs)</h3>
-              <p class="text-gray-500">Mantenimiento y desarrollo de sistema ALISTER y Desarrollo de sistema Comply.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div>
-          <h2 class="text-3xl font-bold text-blue-900">Educación</h2>
-          <div class="mt-4 space-y-4">
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Curso de Introducción a la Programación</h3>
-              <p class="text-gray-500">Instituto Panamericano de Computación, 2006</p>
-            </div>
-            <div>
-              <h3 class="text-xl font-semibold text-blue-700">Curso de GNU/Linux</h3>
-              <p class="text-gray-500">Estacio de Sá, 2008</p>
-            </div>
-          </div>
-        </div>
+    <main>
 
-        <div>
-          <h2 class="text-3xl font-bold text-blue-900">Habilidades</h2>
-          <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div class="bg-gray-200 rounded-md p-4">
-              <h3 class="text-lg font-semibold text-blue-700">Backend Development</h3>
-              <ul class="mt-2 space-y-1 text-gray-700">
-                <li>PHP (Laravel, CakePHP)</li>
-                <li>Python (Django, Flask)</li>
-                <li>Ruby (Rails, Sinatra)</li>
-                <li>MySQL, PostgreSQL</li>
-                <li>Node.js (Express)</li>
-              </ul>
+        <!-- Sección de Inicio (Hero) -->
+        <section id="inicio" class="h-screen flex flex-col justify-center items-center text-center px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Max Siro Soares Nemetz</h1>
+            <h2 class="text-2xl md:text-4xl font-light mb-6">
+                <span class="text-accent font-semibold" id="typed-text"></span><span class="typed-cursor">|</span>
+            </h2>
+            <div class="flex space-x-4 mt-8">
+                <a href="#experiencia" class="bg-accent text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-500 transition-transform transform hover:scale-105">
+                    Mi Experiencia
+                </a>
+                <a href="#contacto" class="bg-card text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-transform transform hover:scale-105">
+                    Contáctame
+                </a>
             </div>
-            <div class="bg-gray-200 rounded-md p-4">
-              <h3 class="text-lg font-semibold text-blue-700">Frontend Development</h3>
-              <ul class="mt-2 space-y-1 text-gray-700">
-                <li>HTML5, CSS3, JavaScript</li>
-                <li>VueJS, ReactJS</li>
-              </ul>
-            </div>
-            <div class="bg-gray-200 rounded-md p-4">
-              <h3 class="text-lg font-semibold text-blue-700">DevOps y Administración de Sistemas</h3>
-              <ul class="mt-2 space-y-1 text-gray-700">
-                <li>Linux (Red Hat, Debian)</li>
-                <li>Docker</li>
-                <li>Jenkins</li>
-                <li>Git</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        </section>
 
-        <div>
-          <h2 class="text-3xl font-bold text-blue-900">Contacto</h2>
-          <div class="mt-4 space-y-4">
-            <div class="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect width="4" height="12" x="2" y="9"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-              <a class="text-blue-700 hover:underline" target="_blank" href="https://linkedin.com/in/maxwellweb">
-                LinkedIn
-              </a>
+        <!-- Nueva Sección Sobre Mí -->
+        <section id="sobre-mi" class="py-20 bg-card">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
+                    <div class="md:col-span-1 flex justify-center">
+                        <img src="assets/img/87447563_10221956623294144_6326801970233344000_n.jpg" alt="Foto de Max Siro Soares Nemetz" class="rounded-full w-56 h-56 md:w-64 md:h-64 object-cover border-4 border-accent shadow-lg">
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="text-3xl font-bold mb-4">Sobre Mí</h2>
+                        <p class="text-lg text-gray-300 mb-6">
+                            Profesional con amplia experiencia en el desarrollo de aplicaciones web robustas y la administración de sistemas Linux. Mi pasión es construir soluciones eficientes, escalables y seguras.
+                        </p>
+                        <ul class="text-gray-300 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <li><strong class="text-accent">Edad:</strong> 38 Años</li>
+                            <li><strong class="text-accent">Ubicación:</strong>Lambaré, Central, Paraguay</li>
+¡                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-              </svg>
-              <a href="mailto:maxwellweb@gmail.com" class="text-blue-700 hover:underline">
-                maxwellweb@gmail.com
-              </a>
-            </div>
-            <div class="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-              <a href="https://wa.me/+595982811235" target="_blank" class="text-blue-700 hover:underline">
-                +595 982 811 235
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
 
-  <footer class="bg-gray-200 text-gray-700 py-6 px-4 md:px-6">
-    <div class="container mx-auto max-w-4xl text-center">
-      <p>© 2024 Max Siro Soares Nemetz. </p>
-    </div>
-  </footer>
+        <!-- Sección de Experiencia -->
+        <section id="experiencia" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Experiencia Profesional</h2>
+                <div class="relative max-w-3xl mx-auto">
+                    <!-- Línea de tiempo vertical -->
+                    <div class="absolute left-1/2 h-full w-0.5 bg-gray-700 transform -translate-x-1/2"></div>
+
+                    <!-- Item 1 (derecha) -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">1</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Softec S.R.L.</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Creación y mantenimiento de sistemas a medidas.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-xs font-semibold bg-gray-700 text-green-300 px-2 py-1 rounded-full">Django</span>
+                                <span class="text-xs font-semibold bg-gray-700 text-cyan-300 px-2 py-1 rounded-full">ReactJS</span>
+                                <span class="text-xs font-semibold bg-gray-700 text-red-400 px-2 py-1 rounded-full">NestJS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 (izquierda) -->
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">2</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Mambo Business Technology</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Mantenimiento y desarrollo de sistemas ALISTER y Comply.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-xs font-semibold bg-gray-700 text-blue-300 px-2 py-1 rounded-full">Laravel</span>
+                                <span class="text-xs font-semibold bg-gray-700 text-green-300 px-2 py-1 rounded-full">Django</span>
+                                <span class="text-xs font-semibold bg-gray-700 text-cyan-300 px-2 py-1 rounded-full">ReactJS</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 (derecha) -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">3</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">SEGEL Soluciones Inteligentes</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Desarrollo de sistemas de puntos de ventas y sistemas web e-learning.</p>
+                             <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-xs font-semibold bg-gray-700 text-orange-400 px-2 py-1 rounded-full">Laravel</span>
+                                <span class="text-xs font-semibold bg-gray-700 text-red-400 px-2 py-1 rounded-full">Codeigniter</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 (izquierda) -->
+                     <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">4</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Excelsis S.A.</h3>
+                            <p class="text-sm font-semibold text-gray-400">Administrador Linux</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Montaje de servidores, virtualización y mantenimiento general.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                 <span class="text-xs font-semibold bg-gray-700 text-red-400 px-2 py-1 rounded-full">Oracle Linux</span>
+                                 <span class="text-xs font-semibold bg-gray-700 text-gray-300 px-2 py-1 rounded-full">Virtualización</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 (derecha) -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">5</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Facilandia</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador Web</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Mantenimiento y desarrollo de su E-Commerce.</p>
+                             <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-xs font-semibold bg-gray-700 text-red-400 px-2 py-1 rounded-full">Rails</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 (izquierda) -->
+                     <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">6</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Capitan Lott</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador Web</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Desarrollo y mantenimiento de sitios de la agencia y clientes.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                 <span class="text-xs font-semibold bg-gray-700 text-orange-400 px-2 py-1 rounded-full">Laravel</span>
+                                 <span class="text-xs font-semibold bg-gray-700 text-purple-400 px-2 py-1 rounded-full">CakePHP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 7 (derecha) -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">7</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">IDTK</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador Web</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Desarrollo del sistema e-siger (Migración del sistema del Ministerio de registro público).</p>
+                             <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-xs font-semibold bg-gray-700 text-orange-400 px-2 py-1 rounded-full">Laravel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 8 (izquierda) -->
+                     <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">8</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Nosotros S.A.</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador Web</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Desarrollo de proyectos en PHP-MySQL y diseño front-end.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                 <span class="text-xs font-semibold bg-gray-700 text-purple-400 px-2 py-1 rounded-full">CakePHP</span>
+                                 <span class="text-xs font-semibold bg-gray-700 text-orange-400 px-2 py-1 rounded-full">Laravel</span>
+                                 <span class="text-xs font-semibold bg-gray-700 text-blue-400 px-2 py-1 rounded-full">Bootstrap</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 9 (derecha) -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto text-white font-semibold text-lg">9</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Grupo Vierci</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador Web</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Desarrollo y mantenimiento de portales de noticias y sitios del grupo.</p>
+                             <div class="flex flex-wrap gap-2 mt-3">
+                                <span class="text-xs font-semibold bg-gray-700 text-blue-300 px-2 py-1 rounded-full">Wordpress</span>
+                                <span class="text-xs font-semibold bg-gray-700 text-red-400 px-2 py-1 rounded-full">Rails</span>
+                                <span class="text-xs font-semibold bg-gray-700 text-orange-400 px-2 py-1 rounded-full">Laravel</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 10 (izquierda) -->
+                     <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-white">10</h1>
+                        </div>
+                        <div class="order-1 bg-card rounded-lg shadow-xl w-5/12 px-6 py-4">
+                            <h3 class="font-bold text-accent text-lg">Tracked</h3>
+                            <p class="text-sm font-semibold text-gray-400">Desarrollador back end</p>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300 mt-2">Desarrollo del sistema de rastreo (tracking).</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                 <span class="text-xs font-semibold bg-gray-700 text-green-400 px-2 py-1 rounded-full">ExtJS</span>
+                                 <span class="text-xs font-semibold bg-gray-700 text-orange-400 px-2 py-1 rounded-full">Java</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Habilidades -->
+        <section id="habilidades" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Habilidades Técnicas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card Backend -->
+                    <div class="bg-card p-6 rounded-lg shadow-lg text-center">
+                         <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path></svg>
+                        <h3 class="text-xl font-bold mb-4">Backend</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>PHP (Laravel, CakePHP)</li>
+                            <li>Python (Django, Flask)</li>
+                            <li>Ruby (Rails, Sinatra)</li>
+                            <li>Node.js (Express)</li>
+                            <li>Bases de Datos (MySQL, PostgreSQL)</li>
+                        </ul>
+                    </div>
+                    <!-- Card Frontend -->
+                    <div class="bg-card p-6 rounded-lg shadow-lg text-center">
+                        <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        <h3 class="text-xl font-bold mb-4">Frontend</h3>
+                         <ul class="space-y-2 text-gray-300">
+                            <li>HTML5, CSS3, JavaScript</li>
+                            <li>VueJS</li>
+                            <li>ReactJS</li>
+                            <li>Tailwind CSS</li>
+                            <li>Bootstrap</li>
+                        </ul>
+                    </div>
+                    <!-- Card DevOps -->
+                    <div class="bg-card p-6 rounded-lg shadow-lg text-center">
+                       <svg class="w-12 h-12 text-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+                        <h3 class="text-xl font-bold mb-4">DevOps & Sistemas</h3>
+                         <ul class="space-y-2 text-gray-300">
+                            <li>Linux (Red Hat, Debian)</li>
+                            <li>Docker</li>
+                            <li>Jenkins</li>
+                            <li>Git & GitHub</li>
+                            <li>Administración de Servidores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Contacto -->
+        <section id="contacto" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-4">Hablemos</h2>
+                <p class="text-center text-gray-400 mb-12">¿Tienes un proyecto en mente o una oportunidad para mí? Me encantaría conversar.</p>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-accent mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            <div>
+                                <h4 class="font-semibold">Email</h4>
+                                <a href="mailto:maxwellweb@gmail.com" class="text-gray-300 hover:text-accent">maxwellweb@gmail.com</a>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-accent mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                             <div>
+                                <h4 class="font-semibold">Teléfono</h4>
+                                <p class="text-gray-300">+595 982 811 235</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start space-x-4">
+                            <svg class="w-6 h-6 text-accent mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <div>
+                                <h4 class="font-semibold">Ubicación</h4>
+                                <p class="text-gray-300">Lambaré, Central, Paraguay</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Formulario de contacto (Placeholder) -->
+                    <form action="#" method="POST" class="space-y-4">
+                        <input type="text" placeholder="Tu Nombre" class="w-full bg-card border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-accent">
+                        <input type="email" placeholder="Tu Email" class="w-full bg-card border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-accent">
+                        <textarea placeholder="Tu Mensaje" rows="5" class="w-full bg-card border border-gray-700 rounded-lg py-3 px-4 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+                        <button type="submit" class="w-full bg-accent text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-500 transition-colors">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <div class="flex justify-center space-x-6 mb-4">
+                 <a href="https://www.linkedin.com/in/maxwellweb/" target="_blank" class="hover:text-accent transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://github.com/maxwellweb" target="_blank" class="hover:text-accent transition-colors">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+            </div>
+            <p>&copy; 2025 Max Siro Soares Nemetz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Efecto de máquina de escribir
+        const typedTextSpan = document.getElementById('typed-text');
+        const textArray = ["Programador Backend", "Administrador de Sistemas", "Apasionado por la Tecnología"];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Delay between current and next text
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 1100);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if(textArray.length) setTimeout(type, newTextDelay + 250);
+        });
+
+        // Ocultar/mostrar navbar al hacer scroll
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 80) { // Ocultar solo si se baja y no se está en el top
+                navbar.style.top = '-80px';
+            } else {
+                // Scroll hacia arriba
+                navbar.style.top = '0';
+            }
+            lastScrollTop = scrollTop;
+
+            // Añadir sombra al hacer scroll
+            if (scrollTop > 10) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
 </body>
 </html>
+
+
