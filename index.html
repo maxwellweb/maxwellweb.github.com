@@ -1184,11 +1184,12 @@ section { padding: 100px 24px; position: relative; }
         </div>
       </div>
 
-      <form class="contact-form fade-el" action="#" method="POST">
-        <input type="text" data-i18n-placeholder="contact.formName" placeholder="Tu nombre" required>
-        <input type="email" data-i18n-placeholder="contact.formEmail" placeholder="Tu email" required>
-        <textarea data-i18n-placeholder="contact.formMsg" placeholder="Tu mensaje" rows="5" required></textarea>
-        <button type="submit" data-i18n="contact.formBtn">Enviar mensaje</button>
+      <form class="contact-form fade-el" id="contactForm">
+        <input type="text" name="name" data-i18n-placeholder="contact.formName" placeholder="Tu nombre" required>
+        <input type="email" name="email" data-i18n-placeholder="contact.formEmail" placeholder="Tu email" required>
+        <textarea name="message" data-i18n-placeholder="contact.formMsg" placeholder="Tu mensaje" rows="5" required></textarea>
+        <button type="submit" id="contactSubmitBtn" data-i18n="contact.formBtn">Enviar mensaje</button>
+        <p id="contactStatus" style="font-size:.85rem;display:none;"></p>
       </form>
     </div>
   </div>
@@ -1286,6 +1287,9 @@ const i18n = {
     'contact.formEmail': 'Tu email',
     'contact.formMsg': 'Tu mensaje',
     'contact.formBtn': 'Enviar mensaje',
+    'contact.sending': 'Enviando...',
+    'contact.success': 'Mensaje enviado con éxito. Te responderé a la brevedad posible.',
+    'contact.error': 'Error al enviar. Intenta de nuevo.',
     'footer.download': 'Descargar CV',
     'footer.print': 'Versión Impresión',
     'footer.printHref': 'cv-profesional.html',
@@ -1362,6 +1366,9 @@ const i18n = {
     'contact.formEmail': 'Your email',
     'contact.formMsg': 'Your message',
     'contact.formBtn': 'Send message',
+    'contact.sending': 'Sending...',
+    'contact.success': 'Message sent successfully. I\'ll respond shortly.',
+    'contact.error': 'Error sending. Try again.',
     'footer.download': 'Download CV',
     'footer.print': 'Print Version',
     'footer.printHref': 'cv-profesional-en.html',
@@ -1482,6 +1489,63 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, 150);
+
+  // ===== CONTACT FORM → WEBHOOK =====
+  const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('contactStatus');
+  const contactBtn = document.getElementById('contactSubmitBtn');
+
+  if (contactForm) {
+    const webhookUrl = 'https://n8n.120987.xyz/webhook/9da023f5-9fc4-49d8-9725-b9961d843ca1';
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const data = {
+        name: contactForm.querySelector('[name="name"]').value.trim(),
+        email: contactForm.querySelector('[name="email"]').value.trim(),
+        message: contactForm.querySelector('[name="message"]').value.trim(),
+      };
+
+      if (!data.name || !data.email || !data.message) return;
+
+      const origText = contactBtn.textContent;
+      contactBtn.disabled = true;
+      contactBtn.textContent = i18n[currentLang]['contact.sending'];
+      contactStatus.style.display = 'none';
+
+      try {
+        const res = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          contactForm.querySelectorAll('input, textarea, button').forEach(el => el.style.display = 'none');
+          contactStatus.textContent = i18n[currentLang]['contact.success'];
+          contactStatus.style.color = 'var(--gold)';
+          contactStatus.style.fontSize = '1.2rem';
+          contactStatus.style.fontWeight = '600';
+          contactStatus.style.textAlign = 'center';
+          contactStatus.style.padding = '40px 0';
+          contactStatus.style.display = 'block';
+        } else {
+          throw new Error(`HTTP ${res.status}`);
+        }
+      } catch (err) {
+        contactStatus.textContent = i18n[currentLang]['contact.error'];
+        contactStatus.style.color = '#e74c3c';
+        contactStatus.style.fontSize = '.85rem';
+        contactStatus.style.fontWeight = '400';
+        contactStatus.style.textAlign = 'left';
+        contactStatus.style.padding = '0';
+        contactStatus.style.display = 'block';
+        contactBtn.disabled = false;
+        contactBtn.textContent = origText;
+      }
+    });
+  }
 });
 </script>
 </body>
