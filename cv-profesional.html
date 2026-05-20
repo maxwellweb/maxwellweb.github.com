@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max Soares — CV Profesional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --maroon: #800020;
+  --maroon-dark: #4A0010;
+  --maroon-light: #F0E4E6;
+  --maroon-bg: #FAF5F6;
+  --black: #1A1A1A;
+  --gray: #555;
+  --gray-light: #999;
+  --white: #FFFFFF;
+  --border: #E0D0D2;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  color: var(--black);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 210mm;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 8px 40px rgba(0,0,0,.12);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: var(--maroon);
+  color: var(--white);
+  padding: 40px 48px 32px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.photo-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,.45);
+  flex-shrink: 0;
+  background: var(--maroon-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-circle svg {
+  width: 60px;
+  height: 60px;
+  opacity: .4;
+}
+
+.header-text { flex: 1; }
+
+.header-text h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.header-text .subtitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255,255,255,.85);
+  letter-spacing: .3px;
+  margin-bottom: 12px;
+}
+
+.header-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  font-size: 12px;
+  color: rgba(255,255,255,.8);
+}
+
+.header-contact a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.header-contact a:hover { opacity: 1; color: var(--white); }
+
+.header-contact span { opacity: .5; }
+
+/* ===== BODY ===== */
+.body { padding: 28px 48px 36px; }
+
+.section { margin-bottom: 22px; }
+.section:last-child { margin-bottom: 0; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--maroon);
+  letter-spacing: .4px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--maroon);
+  margin-bottom: 12px;
+}
+
+/* ===== SUMMARY ===== */
+.summary-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gray);
+}
+
+/* ===== EXPERIENCE ===== */
+.exp-item { margin-bottom: 14px; }
+.exp-item:last-child { margin-bottom: 0; }
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.exp-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+.exp-date {
+  font-size: 11.5px;
+  color: var(--gray-light);
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.exp-company {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--maroon);
+  margin-bottom: 3px;
+}
+
+.exp-bullets {
+  list-style: none;
+  padding-left: 0;
+}
+
+.exp-bullets li {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--gray);
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 1px;
+}
+
+.exp-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--maroon);
+  opacity: .6;
+}
+
+.exp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 3px;
+}
+
+.exp-tag {
+  font-size: 10px;
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: var(--maroon-light);
+  color: var(--maroon-dark);
+  font-weight: 500;
+  letter-spacing: .1px;
+}
+
+/* ===== TWO-COLUMN LAYOUT ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+/* ===== SKILLS TABLE ===== */
+.skills-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+
+.skills-table thead th {
+  background: var(--maroon);
+  color: var(--white);
+  font-weight: 600;
+  text-align: left;
+  padding: 5px 10px;
+  font-size: 11px;
+  letter-spacing: .3px;
+}
+
+.skills-table thead th:first-child { border-radius: 4px 0 0 0; }
+.skills-table thead th:last-child { border-radius: 0 4px 0 0; }
+
+.skills-table tbody td {
+  padding: 4px 10px;
+  border-bottom: 1px solid var(--border);
+  color: var(--gray);
+  font-size: 11.5px;
+}
+
+.skills-table tbody tr:nth-child(even) td {
+  background: var(--maroon-bg);
+}
+
+.skills-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+  width: 1%;
+}
+
+.skills-table .skill-level {
+  white-space: nowrap;
+  text-align: right;
+  width: 1%;
+  color: var(--gray-light);
+  font-size: 11px;
+}
+
+/* ===== EDUCATION ===== */
+.edu-item { margin-bottom: 8px; }
+.edu-item:last-child { margin-bottom: 0; }
+
+.edu-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.edu-detail {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.edu-date {
+  font-size: 11px;
+  color: var(--gray-light);
+}
+
+/* ===== LANGUAGES ===== */
+.lang-list {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.lang-item {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.lang-item .lang-level {
+  font-weight: 400;
+  color: var(--gray-light);
+  font-size: 12px;
+}
+
+/* ===== ACHIEVEMENT ===== */
+.achievement {}
+.achievement-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--maroon);
+  margin-bottom: 4px;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px 10px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.achievement-label {
+  font-weight: 600;
+  color: var(--black);
+  white-space: nowrap;
+}
+
+.achievement-value {
+  color: var(--gray);
+}
+
+/* ===== TOOLS ===== */
+.tools-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px 16px;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.tools-list span { color: var(--black); font-weight: 500; }
+
+/* ===== NOTE ===== */
+.note-box {
+  background: var(--maroon-bg);
+  border-left: 3px solid var(--maroon);
+  padding: 8px 14px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--gray);
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 14px;
+}
+
+/* ===== PRINT ===== */
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  body { background: none; padding: 0; }
+  .page { max-width: none; box-shadow: none; }
+  .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .exp-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .skills-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .skills-table tbody tr:nth-child(even) td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .note-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .section-title { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  .header { flex-direction: column; text-align: center; padding: 24px; gap: 16px; }
+  .header-contact { justify-content: center; }
+  .two-col { grid-template-columns: 1fr; gap: 16px; }
+  .body { padding: 20px 20px 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="photo-circle">
+      <img src="assets/img/87447563_10221956623294144_6326801970233344000_n.jpg" alt="Max Soares" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+    <div class="header-text">
+      <h1>Max Siro Soares Nemetz</h1>
+      <div class="subtitle">Desarrollador Backend &amp; Administrador de Sistemas</div>
+      <div class="header-contact">
+        <a href="mailto:maxwellweb@gmail.com">maxwellweb@gmail.com</a>
+        <span>|</span>
+        <span>+595 982 811 235</span>
+        <span>|</span>
+        <span>Lambaré, Paraguay</span>
+        <span>|</span>
+        <a href="https://www.linkedin.com/in/maxwellweb/" target="_blank">linkedin.com/in/maxwellweb</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SUMMARY -->
+    <div class="section">
+      <div class="section-title">Resumen Profesional</div>
+      <p class="summary-text">Desarrollador full-stack con 10+ años de experiencia construyendo aplicaciones web y administrando infraestructura Linux. Trabajo principal en Tracked desde 2014; paralelamente, consultorías en e-commerce, gobierno, medios y logística. Stacks: PHP/Laravel, Python/Django, Ruby on Rails. Enfoque en sistemas escalables, despliegues automatizados y código mantenible.</p>
+    </div>
+
+    <!-- TRACKED NOTE -->
+    <div class="note-box">
+      <strong>Nota:</strong> Tracked es mi rol principal desde 2014. Las experiencias adicionales fueron consultorías y contratos temporales realizados en paralelo.
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section">
+      <div class="section-title">Experiencia Profesional</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Desarrollador Backend</div>
+          <div class="exp-date">Ene 2014 — Presente</div>
+        </div>
+        <div class="exp-company">Tracked — Rol Principal</div>
+        <ul class="exp-bullets">
+          <li>Backend de plataforma tracking con Java y ExtJS; arquitectura para 10,000+ registros.</li>
+          <li>Evolución de monolito Java a servicios modulares con PostgreSQL y REST APIs.</li>
+          <li>Automatización de logging y monitoreo para detección temprana de fallos. 99.9% uptime.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Java</span>
+          <span class="exp-tag">ExtJS</span>
+          <span class="exp-tag">PostgreSQL</span>
+          <span class="exp-tag">REST APIs</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Desarrollador (Consultoría)</div>
+          <div class="exp-date">Sep 2024 — Dic 2024</div>
+        </div>
+        <div class="exp-company">Softec S.R.L. — Neuland</div>
+        <ul class="exp-bullets">
+          <li>APIs REST con Django y NestJS integradas con frontends ReactJS.</li>
+          <li>Migración de base de datos Bims legacy a PostgreSQL interna.</li>
+          <li>Colaboración multidisciplinaria para entregas en plazo ajustado.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Django</span>
+          <span class="exp-tag">ReactJS</span>
+          <span class="exp-tag">NestJS</span>
+          <span class="exp-tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Desarrollador (Consultoría)</div>
+          <div class="exp-date">Feb 2024 — Sep 2024</div>
+        </div>
+        <div class="exp-company">Mambo Business Technology</div>
+        <ul class="exp-bullets">
+          <li>Sistemas ALISTER y Comply (trade marketing y compliance).</li>
+          <li>Optimización SQL reduciendo tiempos de carga 60% en módulos críticos.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Laravel</span>
+          <span class="exp-tag">Django</span>
+          <span class="exp-tag">ReactJS</span>
+          <span class="exp-tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Desarrollador (Consultoría)</div>
+          <div class="exp-date">Abr 2023 — Ago 2023</div>
+        </div>
+        <div class="exp-company">SEGEL Soluciones Inteligentes</div>
+        <ul class="exp-bullets">
+          <li>Sistema POS con Laravel: 1,000+ clientes y transacciones/día.</li>
+          <li>Plataforma e-learning Laravel para 100+ usuarios simultáneos.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Laravel</span>
+          <span class="exp-tag">CodeIgniter</span>
+          <span class="exp-tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Desarrollador Web (Consultoría)</div>
+          <div class="exp-date">Jul 2017 — Abr 2021</div>
+        </div>
+        <div class="exp-company">Grupo Vierci</div>
+        <ul class="exp-bullets">
+          <li>Balanceo de carga con control de timeouts en pandemia; eliminación de caídas por tráfico pico.</li>
+          <li>Mantenimiento portales alto tráfico (WordPress, Rails, Laravel) con disponibilidad 24/7.</li>
+          <li>Integración APIs terceros y coordinación deploys dev/staging/producción.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">WordPress</span>
+          <span class="exp-tag">Ruby on Rails</span>
+          <span class="exp-tag">MySQL</span>
+          <span class="exp-tag">Nginx</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TWO COLUMN: SKILLS + EDUCATION + LANGUAGES -->
+    <div class="two-col">
+
+      <!-- LEFT COL -->
+      <div>
+        <!-- SKILLS -->
+        <div class="section">
+          <div class="section-title">Habilidades Técnicas</div>
+          <table class="skills-table">
+            <thead>
+              <tr><th>Categoría</th><th>Tecnologías</th><th>Nivel</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Backend</td><td>PHP (Laravel, CakePHP), Python (Django), Ruby (Rails), Node.js</td><td class="skill-level">Avanzado / Intermedio</td></tr>
+              <tr><td>Frontend</td><td>ReactJS, VueJS, HTML5/CSS3, JS, Tailwind, Bootstrap</td><td class="skill-level">Intermedio / Avanzado</td></tr>
+              <tr><td>Bases de Datos</td><td>MySQL, PostgreSQL</td><td class="skill-level">Avanzado</td></tr>
+              <tr><td>DevOps</td><td>Linux (RHEL, Debian, OL), Docker, Jenkins, Git</td><td class="skill-level">Avanzado</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="section">
+          <div class="section-title">Educación</div>
+          <div class="edu-item">
+            <div class="edu-title">Formación Autodidacta</div>
+            <div class="edu-detail">Aprendizaje continuo desde 2004</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-title">Curso Básico de Linux</div>
+            <div class="edu-detail">Universidade Estácio de Sá, Brasil</div>
+            <div class="edu-date">2004 — Curso de Verano</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-title">Introducción a la Programación</div>
+            <div class="edu-detail">Universidade Estácio de Sá, Brasil</div>
+            <div class="edu-date">2004 — Curso de Verano</div>
+          </div>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="section">
+          <div class="section-title">Idiomas</div>
+          <div class="lang-list">
+            <div class="lang-item">Español <span class="lang-level">— Nativo</span></div>
+            <div class="lang-item">Inglés <span class="lang-level">— Técnico</span></div>
+            <div class="lang-item">Português <span class="lang-level">— Básico</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COL -->
+      <div>
+        <!-- ACHIEVEMENT -->
+        <div class="section">
+          <div class="section-title">Logro Destacado</div>
+          <div class="achievement">
+            <div class="achievement-title">Balanceo de Carga — Grupo Vierci</div>
+            <div class="achievement-grid">
+              <span class="achievement-label">Problema:</span>
+              <span class="achievement-value">Servidores de noticias se sobresaturaban con cada publicación de último momento en pandemia, causando caídas en cadena.</span>
+              <span class="achievement-label">Análisis:</span>
+              <span class="achievement-value">Hilos HTTP se acumulaban sin control bajo picos de tráfico, agotando recursos del servidor.</span>
+              <span class="achievement-label">Solución:</span>
+              <span class="achievement-value">Balanceo de carga con división inteligente + timeouts en hilos HTTP para liberar recursos bloqueados.</span>
+              <span class="achievement-label">Resultado:</span>
+              <span class="achievement-value">100% disponibilidad durante crisis sanitaria. Servidores sin caídas incluso en picos máximos.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- OTHER EXPERIENCE -->
+        <div class="section">
+          <div class="section-title">Otras Experiencias</div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Adm. Linux (Consultoría)</div>
+              <div class="exp-date">Dic 2022 — Feb 2023</div>
+            </div>
+            <div class="exp-company" style="font-size:12px;color:var(--gray);">Excelsis S.A.</div>
+            <div class="exp-tags" style="margin-top:2px;">
+              <span class="exp-tag">Oracle Linux</span>
+              <span class="exp-tag">VMware</span>
+              <span class="exp-tag">Bash</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Desarrollador Web (Consultoría)</div>
+              <div class="exp-date">Sep 2022 — Dic 2022</div>
+            </div>
+            <div class="exp-company" style="font-size:12px;color:var(--gray);">Facilandia</div>
+            <div class="exp-tags" style="margin-top:2px;">
+              <span class="exp-tag">Ruby on Rails</span>
+              <span class="exp-tag">PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Desarrollador Web (Consultoría)</div>
+              <div class="exp-date">Abr 2022 — Ago 2022</div>
+            </div>
+            <div class="exp-company" style="font-size:12px;color:var(--gray);">Capitan Lott</div>
+            <div class="exp-tags" style="margin-top:2px;">
+              <span class="exp-tag">Laravel</span>
+              <span class="exp-tag">CakePHP</span>
+              <span class="exp-tag">MySQL</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Desarrollador Web (Consultoría)</div>
+              <div class="exp-date">Nov 2021 — Feb 2022</div>
+            </div>
+            <div class="exp-company" style="font-size:12px;color:var(--gray);">IDTK — M. Registro Público</div>
+            <div class="exp-tags" style="margin-top:2px;">
+              <span class="exp-tag">Laravel</span>
+              <span class="exp-tag">MSSQL</span>
+            </div>
+          </div>
+
+          <div class="exp-item">
+            <div class="exp-header">
+              <div class="exp-title">Desarrollador Web (Consultoría)</div>
+              <div class="exp-date">Jun 2021 — Ago 2021</div>
+            </div>
+            <div class="exp-company" style="font-size:12px;color:var(--gray);">Nosotros S.A.</div>
+            <div class="exp-tags" style="margin-top:2px;">
+              <span class="exp-tag">PHP</span>
+              <span class="exp-tag">CakePHP</span>
+              <span class="exp-tag">MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOLS -->
+        <div class="section">
+          <div class="section-title">Herramientas</div>
+          <div class="tools-list">
+            <span>Git/GitHub</span> •
+            <span>Jenkins</span> •
+            <span>Docker</span> •
+            <span>Scrum/Kanban</span> •
+            <span>VMware/Proxmox</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
