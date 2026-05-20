@@ -1381,7 +1381,8 @@ const typewriterPhrases = {
   en: ['Backend Developer', 'Systems Administrator', 'Tech Enthusiast']
 };
 
-let currentLang = localStorage.getItem('lang') || 'es';
+const urlParams = new URLSearchParams(window.location.search);
+let currentLang = urlParams.get('lang') || localStorage.getItem('lang') || 'es';
 let twPhrases, twIdx = 0, twChar = 0, twDeleting = false;
 let twActive = false;
 const twEl = document.getElementById('typed-text');
